@@ -1,13 +1,17 @@
-<div class="container-lg mt-4">
+<div class="container-lg">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'trends' %>
+      <div class="sticky-top pt-5">
+        <%= render 'trends' %>
+      </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 pt-5 mt-3">
       <%= render 'feed' %>
     </div>
     <div class="col-md-3">
-      <%= render 'follow_suggestions' %>
+      <div class="sticky-top pt-5">
+        <%= render 'follow_suggestions' %>
+      </div>
     </div>
   </div>
 </div>

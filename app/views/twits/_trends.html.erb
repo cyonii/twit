@@ -1,6 +1,10 @@
+<% if user_signed_in? %>
+  <%= render 'profile_card' %>
+<% end %>
+
 <div class="card">
   <div class="card-header">
-    <h6 class="mb-0">Trends</h6>
+    <h6 class="mb-0 fw-bold">Trends</h6>
   </div>
   <div class="card-body">
     <ul class="list-group list-group-flush">
@@ -8,6 +12,5 @@
       <li class="list-group-item py-1">Trend <%= num %></li>
       <% end %>
     </ul>
-
   </div>
 </div>

@@ -1,22 +1,30 @@
+<% if user_signed_in? %>
 <div class="card mb-2">
   <div class="card-body">
     <%= render 'twits/form' %>
   </div>
 </div>
+<% end %>
 
 <% @twits.each do | twit | %>
   <article class="card shadow-sm mb-2">
     <div class="card-body d-flex">
       <figure class="mb-0 mr-2">
-        <img class="rounded-circle" src="https://bulma.io/images/placeholders/48x48.png">
+        <%= gravatar_image_tag(twit.user.email, size: 32, alt: twit.user.name, class: "rounded-circle av-48") %>
       </figure>
-      <p><%= twit.body %></p>
+      <div class="">
+        <p class="mb-0 fs-15 fw-bold">
+          <%= twit.user.name %>&nbsp;<span class="fw-light">|</span>
+          <small class="text-secondary">@<%= twit.user.username %></small>
+        </p>
+        <p class="mb-0"><%= twit.body %></p>
+      </div>
     </div>
+    <% if user_signed_in? && current_user == twit.user %>
     <div class="card-footer">
-      <%= link_to twit, class: "link-primary text-decoration-none" do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
-          <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
-          <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>
+      <%= link_to twit, class: "link-secondary text-decoration-none" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="link-secondary bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+          <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
         </svg>
       <% end %>
       <%= link_to edit_twit_path(twit), class: "link-secondary text-decoration-none mx-3" do %>
@@ -30,5 +38,6 @@
         </svg>
       <% end %>
     </div>
+    <% end %>
   </article>
 <% end %>
