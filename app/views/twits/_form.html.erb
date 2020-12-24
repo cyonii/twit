@@ -1,0 +1,14 @@
+<%= simple_form_for(@twit) do |form| %>
+  <%= form.error_notification %>
+  <%= form.input :body,
+      label: "Twit abou't",
+      input_html: {
+        class: "form-control",
+        placeholder: "Compose a new Twit",
+        rows: 4,
+        autofocus: true
+      },
+      label_html: {class: "fw-light text-secondary"}
+  %>
+  <%= form.button :submit, 'Post Twit', class: "btn btn-primary btn-sm fw-bold text-white rounded-1 mt-2" %>
+<% end %>
