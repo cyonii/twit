@@ -1,1 +1,1 @@
-json.partial! "twits/twit", twit: @twit
+json.partial! 'twits/twit', twit: @twit
