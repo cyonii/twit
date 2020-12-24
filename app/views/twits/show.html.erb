@@ -1,9 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5 col-lg-4">
+      <div class="card shadow">
+        <div class="card-body py-5">
+          <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @twit.body %>
-</p>
+          <p>
+            <strong>Twit:</strong>
+            <%= @twit.body %>
+          </p>
 
-<%= link_to 'Edit', edit_twit_path(@twit) %> |
-<%= link_to 'Back', twits_path %>
+          <p class="fw-light">
+            <%= link_to 'Edit', edit_twit_path(@twit) %> |
+            <%= link_to 'Back', twits_path %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
