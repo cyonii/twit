@@ -20,7 +20,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <%= link_to "New Twit", new_twit_path, class: "btn btn-light text-primary fw-bold rounded-1" %>
+                <%= link_to "New Twit", new_twit_path, class: "btn btn-light text-primary rounded-1" %>
               </li>
               <li class="nav-item">
                 <%= link_to "Sign up", '#', class: "btn" %>
@@ -36,12 +36,16 @@
 
     <% if flash[:notice] %>
       <div class="alert alert-info">
-        <p class="mb-0"><%= notice %></p>
+        <div class="container">
+          <p class="mb-0"><%= notice %></p>
+        </div>
       </div>
     <% end %>
     <% if flash[:alert] %>
       <div class="alert alert-danger">
-        <p class="mb-0"><%= alert %></p>
+        <div class="container">
+          <p class="mb-0"><%= alert %></p>
+        </div>
       </div>
     <% end %>
 
