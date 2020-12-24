@@ -10,6 +10,30 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light bg-primary">
+        <div class="container-lg">
+          <%= link_to "Twiit", root_path, class: "navbar-brand text-white fw-bold" %>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <%= link_to "New Twit", new_twit_path, class: "btn btn-light text-primary fw-bold rounded-1" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign up", '#', class: "btn" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+
+
     <% if flash[:notice] %>
       <div class="alert alert-info">
         <p class="mb-0"><%= notice %></p>
@@ -21,6 +45,10 @@
       </div>
     <% end %>
 
+
+
     <%= yield %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   </body>
 </html>

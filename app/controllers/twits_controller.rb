@@ -1,16 +1,16 @@
 class TwitsController < ApplicationController
-  before_action :set_twit, only: [:show, :edit, :update, :destroy]
+  before_action :set_twit, only: %i[show edit update destroy]
 
   # GET /twits
   # GET /twits.json
   def index
-    @twits = Twit.all
+    @twits = Twit.all.order('created_at DESC')
+    @twit = Twit.new
   end
 
   # GET /twits/1
   # GET /twits/1.json
-  def show
-  end
+  def show; end
 
   # GET /twits/new
   def new
@@ -18,8 +18,7 @@ class TwitsController < ApplicationController
   end
 
   # GET /twits/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /twits
   # POST /twits.json
@@ -62,13 +61,14 @@ class TwitsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_twit
-      @twit = Twit.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def twit_params
-      params.require(:twit).permit(:body)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_twit
+    @twit = Twit.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def twit_params
+    params.require(:twit).permit(:body)
+  end
 end
